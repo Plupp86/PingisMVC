@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PingisMVC.Models.ViewModels
 {
-    public class MatchesVM
+    public class PlayedMatch
     {
 		public string PlayerOne { get; set; }
 		public string PlayerTwo { get; set; }

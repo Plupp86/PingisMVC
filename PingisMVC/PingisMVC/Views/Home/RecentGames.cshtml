@@ -1,4 +1,4 @@
-﻿@model PingisMVC.Models.ViewModels.MatchesVM[]
+﻿@model PingisMVC.Models.ViewModels.PlayerSpecificMatches
 
 <!DOCTYPE html>
 <html>
@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-	@foreach (var item in Model)
+	@foreach (var item in Model.recentMatches)
 	{
 		@item.PlayerOne<br />
 

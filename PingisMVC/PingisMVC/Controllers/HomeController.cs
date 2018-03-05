@@ -28,7 +28,19 @@ namespace PingisMVC.Controllers
 
 		public IActionResult RecentGames()
 		{
-			return View(rep.GetRecentMatches());
+
+			return View(new AllMatchesVM()
+			{
+				recentMatches = rep.GetRecentMatches()
+			});
 		}
-    }
+
+		public IActionResult PlayerStats()
+		{
+			return View(new AllMatchesVM()
+			{
+				recentMatches = rep.GetMatchesById(1007)
+			});
+		}
+	}
 }
