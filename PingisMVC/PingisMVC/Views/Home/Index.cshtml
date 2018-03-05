@@ -1,9 +1,21 @@
-﻿<!DOCTYPE html>
+﻿@model PingisMVC.Models.ViewModels.LeagueTableVM
+
+
+<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 </head>
 <body>
-
+	<table>
+		<tr><th>Name</th><th>Wins</th></tr>
+	@foreach (var item in Model.Players)
+	{
+		<tr>
+			<td>@item.Name</td>
+			<td>@item.MatchesWon</td>
+		</tr>
+	}
+	</table>
 </body>
 </html>

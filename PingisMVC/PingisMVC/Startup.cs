@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using PingisMVC.Models;
 using PingisMVC.Models.Entities;
 
 namespace PingisMVC
@@ -20,7 +21,7 @@ namespace PingisMVC
 			var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MiniProject_v3;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 			services.AddDbContext<PingisContext>(o => o.UseSqlServer(connString));
-			//services.AddTransient<PersonRepository>();
+			services.AddTransient<Repository>();
 
 
 			services.AddMvc();

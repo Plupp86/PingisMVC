@@ -5,6 +5,12 @@ namespace PingisMVC.Models.Entities
 {
     public partial class Player
     {
+        public Player()
+        {
+            MatchPlayer1 = new HashSet<Match>();
+            MatchPlayer2 = new HashSet<Match>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public int MatchesPlayed { get; set; }
@@ -14,6 +20,10 @@ namespace PingisMVC.Models.Entities
         public int SetsLost { get; set; }
         public int SetDifference { get; set; }
         public int? Elo { get; set; }
-        public int Class { get; set; }
+        public int TeamId { get; set; }
+
+        public Team Team { get; set; }
+        public ICollection<Match> MatchPlayer1 { get; set; }
+        public ICollection<Match> MatchPlayer2 { get; set; }
     }
 }

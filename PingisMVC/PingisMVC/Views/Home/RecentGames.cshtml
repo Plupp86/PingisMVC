@@ -1,0 +1,22 @@
+﻿@model PingisMVC.Models.ViewModels.MatchesVM[]
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	@foreach (var item in Model)
+	{
+		@item.PlayerOne<br />
+
+		@item.PlayerTwo<br />
+
+		@item.SetsOne<br />
+
+		@item.SetsTwo<br />
+		
+		@item.DatePlayed<br />
+	}
+</body>
+</html>

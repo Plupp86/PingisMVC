@@ -8,8 +8,10 @@ namespace PingisMVC.Models.ViewModels
 {
     public class MatchesVM
     {
-		public string[] PlayerNames { get; set; }
-		public int[] PlayerId { get; set; }
-		public Match[] Matches { get; set; }
+		public string PlayerOne { get; set; }
+		public string PlayerTwo { get; set; }
+		public int SetsOne { get; set; }
+		public int SetsTwo { get; set; }
+		public DateTime DatePlayed { get; set; }
 	}
 }
