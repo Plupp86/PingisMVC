@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PingisMVC.Controllers
 {
-    public class Admin : Controller
+    public class AdminController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()

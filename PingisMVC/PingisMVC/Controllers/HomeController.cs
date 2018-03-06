@@ -37,11 +37,11 @@ namespace PingisMVC.Controllers
 			});
 		}
 
-		public IActionResult PlayerStats()
+		public IActionResult PlayerStats(int id)
 		{
-			return View(new AllMatchesVM()
+			return PartialView("PlayStats", new PlayerStatsVM()
 			{
-				recentMatches = rep.GetMatchesById(1007)
+				recentMatches = rep.GetMatchesById(id)
 			});
 		}
 
@@ -109,7 +109,5 @@ namespace PingisMVC.Controllers
 			rep.AddMatch(model.NewMatch);
 			return RedirectToAction(nameof(Index));
 		}
-
-
 	}
 }

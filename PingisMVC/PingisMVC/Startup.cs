@@ -20,6 +20,7 @@ namespace PingisMVC
 		{
 			var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MiniProject_v3;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 			//var connString = @"Data Source=81.95.105.77;Initial Catalog=e000369;Integrated Security=False;User ID=e000369a;Password=PingPong1234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+			//var connString = @"Server=tcp:chrisryas.database.windows.net,1433;Initial Catalog=PingPongDB;Persist Security Info=False;User ID=Plupp86;Password=PingPong123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 			services.AddDbContext<PingisContext>(o => o.UseSqlServer(connString));
 			services.AddTransient<Repository>();
 

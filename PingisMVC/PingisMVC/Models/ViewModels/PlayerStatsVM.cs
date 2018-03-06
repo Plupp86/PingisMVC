@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PingisMVC.Models.ViewModels
 {
-    public class PlayerSpecificMatches
+    public class PlayerStatsVM
     {
 		public PlayedMatch[] recentMatches { get; set; }
 	}

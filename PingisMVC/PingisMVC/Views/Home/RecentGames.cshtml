@@ -1,4 +1,4 @@
-﻿@model PingisMVC.Models.ViewModels.PlayerSpecificMatches
+﻿@model AllMatchesVM
 
 <!DOCTYPE html>
 <html>
@@ -6,17 +6,26 @@
 	<title></title>
 </head>
 <body>
+	<table>
+		<tr>
+			<th>Player Name</th>
+			<th>Set</th>
+			<th> - </th>
+			<th>Set</th>
+			<th>Player Name</th>
+			<th>Game played</th>
+		</tr>
 	@foreach (var item in Model.recentMatches)
 	{
-		@item.PlayerOne<br />
-
-		@item.PlayerTwo<br />
-
-		@item.SetsOne<br />
-
-		@item.SetsTwo<br />
-		
-		@item.DatePlayed<br />
+		<tr>
+			<td>@item.PlayerOne</td>
+			<td>@item.SetsOne</td>
+			<td> - </td>
+			<td>@item.SetsTwo</td>
+			<td>@item.PlayerTwo</td>
+			<td>@item.DatePlayed</td>
+		</tr>
 	}
+	</table>
 </body>
 </html>

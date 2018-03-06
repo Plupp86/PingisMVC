@@ -23,8 +23,8 @@ namespace PingisMVC.Models
 			return new LeagueTableVM()
 			{
 				Players = context.Player
-					.OrderBy(p => p.Elo)
-					.ThenBy(p => p.MatchesWon)
+					.OrderByDescending(p => p.Elo)
+					.ThenByDescending(p => p.MatchesWon)
 					.ToArray()
 			};
 		}

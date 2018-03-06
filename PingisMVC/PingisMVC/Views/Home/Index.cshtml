@@ -1,21 +1,24 @@
-﻿@model PingisMVC.Models.ViewModels.LeagueTableVM
-
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<table>
-		<tr><th>Name</th><th>Wins</th></tr>
+﻿@model LeagueTableVM
+<table>
+	<tr>
+	<th>Player</th>
+	<th>Matches Played</th>
+	<th>Mathches Won</th>
+	<th>Matches Lost</th>
+	<th>Sets Won</th>
+	<th>Sets Lost</th>
+	<th>Rating</th></tr>
 	@foreach (var item in Model.Players)
 	{
-		<tr>
+		<tr onclick="toggleStats(@item.Id)">
 			<td>@item.Name</td>
+			<td>@item.MatchesPlayed</td>
 			<td>@item.MatchesWon</td>
+			<td>@item.MatchesLost</td>
+			<td>@item.SetsWon</td>
+			<td>@item.SetsLost</td>
+			<td>@item.Elo</td>
 		</tr>
+		<tbody id="@("tb"+item.Id)" style="display:none"></tbody>
 	}
-	</table>
-</body>
-</html>
+</table>
