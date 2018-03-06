@@ -72,6 +72,23 @@ namespace PingisMVC.Models
 				.ToArray();
 		}
 
+		public Team[] GetTeams() => context.Team
+				.ToArray();
 
+		public Player[] GetPlayers()
+		{
+			return context.Player
+				.OrderBy(p => p.TeamId)
+				.ThenBy(p => p.Name)
+				.ToArray();
+		}
+
+		public string GetTeamName(int id)
+		{
+			return context.Team
+				.Single(t => t.Id == id)
+				.ClassName;
+				
+		}
 	}
 }

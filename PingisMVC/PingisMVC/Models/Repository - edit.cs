@@ -39,19 +39,46 @@ namespace PingisMVC.Models
 		public void AddMatch(Match newMatch)
 		{
 			if (newMatch.Player1Sets > newMatch.Player2Sets)
-				UppdatePlayers(newMatch.Player1Id, newMatch.Player2Id);
+				UppdatePlayers(newMatch.Player1Id, newMatch.Player2Id, newMatch.Player1Sets, newMatch.Player2Sets);
 			else
-				UppdatePlayers(newMatch.Player2Id, newMatch.Player1Id);
+				UppdatePlayers(newMatch.Player2Id, newMatch.Player1Id, newMatch.Player2Sets, newMatch.Player1Sets);
 
 			context.Match
 				.Add(newMatch);
 			context.SaveChanges();
 		}
 
-		public void UppdatePlayers(int winner, int loser)
+		public void UppdatePlayers(int winner, int loser, int winnerSets, int loserSets)
 		{
-			// Logic to uppdate player rankings and stuff goes here!
-		}
+			var winningPlayer = context.Player
+				.Single(p => p.Id == winner);
 
-    }
+			var losingPlayer = context.Player
+				.Single(p => p.Id == loser);
+
+			winningPlayer.MatchesWon++;
+			winningPlayer.MatchesPlayed++;
+			winningPlayer.SetsWon += winnerSets;
+			winningPlayer.SetsLost += loserSets;
+			winningPlayer.SetDifference += (winnerSets - loserSets);
+
+			losingPlayer.MatchesLost++;
+			losingPlayer.MatchesPlayed++;
+			losingPlayer.SetsWon += loserSets;
+			losingPlayer.SetsLost += winnerSets;
+			losingPlayer.SetDifference += (loserSets - winnerSets);
+
+
+
+			double ratingWinner = Math.Pow(10, Convert.ToDouble(winningPlayer.Elo) / 400);
+			double ratingLoser = Math.Pow(10, Convert.ToDouble(losingPlayer.Elo) / 400);
+
+			double rateChange = 1 - ratingWinner / (ratingWinner + ratingLoser);
+
+			winningPlayer.Elo += Convert.ToInt32(32 * rateChange);
+			losingPlayer.Elo -= Convert.ToInt32(32 * rateChange);
+
+			context.SaveChanges();
+		}
+	}
 }

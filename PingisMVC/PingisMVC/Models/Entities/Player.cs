@@ -11,6 +11,12 @@ namespace PingisMVC.Models.Entities
             MatchPlayer2 = new HashSet<Match>();
         }
 
+		public Player(string name, int teamId)
+		{
+			Name = name;
+			TeamId = teamId;
+		}
+
         public int Id { get; set; }
         public string Name { get; set; }
         public int MatchesPlayed { get; set; }

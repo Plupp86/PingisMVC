@@ -1,0 +1,51 @@
+﻿@model AddMatchVM
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form asp-controller="Home" asp-action="AddMatch" method="post">
+		<table>
+			<tr>
+				<td>
+					<label asp-for="ListOfPlayers"></label>
+					<select asp-for="NewMatch.Player1Id"
+							asp-items="Model.ListOfPlayers"></select>
+					<span asp-validation-for="ListOfPlayers"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label asp-for="Sets"></label>
+					<select asp-for="NewMatch.Player1Sets"
+							asp-items="Model.Sets"></select>
+					<span asp-validation-for="Sets"></span>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label asp-for="ListOfPlayers"></label>
+					<select asp-for="NewMatch.Player2Id"
+							asp-items="Model.ListOfPlayers"></select>
+					<span asp-validation-for="ListOfPlayers"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label asp-for="Sets"></label>
+					<select asp-for="NewMatch.Player2Sets"
+							asp-items="Model.Sets"></select>
+					<span asp-validation-for="Sets"></span>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center">
+					<input type="submit" value="Add Match" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

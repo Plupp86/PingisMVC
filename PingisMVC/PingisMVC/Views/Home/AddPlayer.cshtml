@@ -1,0 +1,34 @@
+﻿@model AddPlayerVM
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form asp-controller="Home" asp-action="AddPlayer" method="post">
+		<table>
+			<tr>
+				<td>
+					<label asp-for="Name"></label>
+					<input asp-for="Name" />
+					<span asp-validation-for="Name" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label asp-for="TeamDropList"></label>
+					<select asp-for="TeamId"
+							asp-items="Model.TeamDropList"></select>
+					<span asp-validation-for="TeamDropList"></span>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:center">
+					<input type="submit" value="Add Player" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
