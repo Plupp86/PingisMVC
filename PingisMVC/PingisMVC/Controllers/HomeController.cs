@@ -76,37 +76,37 @@ namespace PingisMVC.Controllers
 		[HttpGet]
 		public IActionResult AddMatch()
 		{
-			var players = rep.GetPlayers();
-			var model = new AddMatchVM()
-			{
-				ListOfPlayers = new SelectListItem[players.Length],
-				Sets = new SelectListItem[3]
-			};
-
-			model.Sets[0] = new SelectListItem { Value = "0", Text = "0" };
-			model.Sets[1] = new SelectListItem { Value = "1", Text = "1" };
-			model.Sets[2] = new SelectListItem { Value = "2", Text = "2" };
-
-
-
-			for (int i = 0; i < players.Length; i++)
-			{
-				var teamname = rep.GetTeamName(players[i].TeamId);
-				var text = $"{teamname} - {players[i].Name}";
-				model.ListOfPlayers[i] = new SelectListItem { Value = players[i].Id.ToString(), Text = text };
-			}
-			return View(model);
+			return View(rep.PopulateLists());
 		}
 
 		[HttpPost]
 		public IActionResult AddMatch(AddMatchVM model)
 		{
+			if (model.SelectedPlayer1Id == model.SelectedPlayer2Id)
+			{
+				ModelState.AddModelError("SelectedPlayer2Id", "Players cannot be the same!");
+			}
+
+			if (model.SelectedPlayer1Sets == model.SelectedPlayer2Sets || (model.SelectedPlayer1Sets < 2 && model.SelectedPlayer2Sets < 2))
+			{
+				ModelState.AddModelError("SelectedPlayer2Sets", "Incorrect Result! Matches are played in best of 3 sets.");
+			}
+
 			if (!ModelState.IsValid)
 			{
-				return View(model);
+				return View(rep.PopulateLists());
 			}
-			model.NewMatch.Date = DateTime.Now;
-			rep.AddMatch(model.NewMatch);
+
+			Match newMatch = new Match()
+			{
+				Player1Id = model.SelectedPlayer1Id,
+				Player2Id = model.SelectedPlayer2Id,
+				Player1Sets = model.SelectedPlayer1Sets,
+				Player2Sets = model.SelectedPlayer2Sets,
+				Date = DateTime.Now
+			};
+			
+			rep.AddMatch(newMatch);
 			return RedirectToAction(nameof(Index));
 		}
 	}

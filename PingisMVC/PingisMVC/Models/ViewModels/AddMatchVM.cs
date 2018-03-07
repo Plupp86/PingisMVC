@@ -21,12 +21,18 @@ namespace PingisMVC.Models.ViewModels
 		[Display(Name = "Player")]
 		public SelectListItem[] ListOfPlayers { get; set; }
 
-
 		public SelectListItem[] Sets { get; set; }
-		
 
-		public Match NewMatch { get; set; }
+		[Display(Name ="Player 1: ")]
+		public int SelectedPlayer1Id { get; set; }
 
+		[Display(Name = "Player 2: ")]
+		public int SelectedPlayer2Id { get; set; }
 
+		[Display(Name = "Score: ")]
+		public int SelectedPlayer1Sets { get; set; }
+
+		[Display(Name = "Score: ")]
+		public int SelectedPlayer2Sets { get; set; }
 	}
 }

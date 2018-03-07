@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using PingisMVC.Models.Entities;
 using PingisMVC.Models.ViewModels;
 using System;
@@ -40,7 +41,7 @@ namespace PingisMVC.Models
 			return context.Match
 				.Include(m => m.Player1)
 				.Include(m => m.Player2)
-				.OrderBy(m => m.Date)
+				.OrderByDescending(m => m.Date)
 				.Select(m => new PlayedMatch
 				{
 					PlayerOne = m.Player1.Name,
@@ -49,7 +50,7 @@ namespace PingisMVC.Models
 					SetsTwo = m.Player2Sets,
 					DatePlayed = m.Date
 				})
-				.Take(10)
+				.Take(20)
 				.ToArray();
 		}
 
@@ -58,7 +59,7 @@ namespace PingisMVC.Models
 			return context.Match
 				.Include(m => m.Player1)
 				.Include(m => m.Player2)
-				.OrderBy(m => m.Date)
+				.OrderByDescending(m => m.Date)
 				.Where(m => m.Player1Id == id || m.Player2Id == id)
 				.Select(m => new PlayedMatch
 				{
@@ -89,6 +90,29 @@ namespace PingisMVC.Models
 				.Single(t => t.Id == id)
 				.ClassName;
 				
+		}
+
+		public AddMatchVM PopulateLists()
+		{
+			var players = GetPlayers();
+			var model = new AddMatchVM()
+			{
+				Sets = new SelectListItem[3],
+				ListOfPlayers = new SelectListItem[players.Length]
+			};
+
+			for (int i = 0; i < players.Length; i++)
+			{
+				var teamname = GetTeamName(players[i].TeamId);
+				var text = $"{teamname} - {players[i].Name}";
+				model.ListOfPlayers[i] = new SelectListItem { Value = players[i].Id.ToString(), Text = text };
+			}
+
+			model.Sets[0] = new SelectListItem { Value = "0", Text = "0" };
+			model.Sets[1] = new SelectListItem { Value = "1", Text = "1" };
+			model.Sets[2] = new SelectListItem { Value = "2", Text = "2" };
+
+			return model;
 		}
 	}
 }

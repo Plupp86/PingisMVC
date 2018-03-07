@@ -9,10 +9,10 @@ namespace PingisMVC.Models.ViewModels
 {
     public class AddPlayerVM
     {
-		[Display(Name = "Name")]
+		[Display(Name = "Name: ")]
 		public string Name { get; set; }
 
-		[Display(Name = "Team")]
+		[Display(Name = "Team: ")]
 		public SelectListItem[] TeamDropList { get; set; }
 
 		public int TeamId { get; set; }

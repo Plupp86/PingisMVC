@@ -1,12 +1,14 @@
 ﻿@model LeagueTableVM
-<table>
+
+<h3 class="pageHeader">Current Standing</h3><br />
+<table class="leaguetable">
 	<tr>
 	<th>Player</th>
 	<th>Matches Played</th>
 	<th>Mathches Won</th>
-	<th>Matches Lost</th>
-	<th>Sets Won</th>
-	<th>Sets Lost</th>
+	<th class="extra">Matches Lost</th>
+	<th class="extra">Sets Won</th>
+	<th class="extra">Sets Lost</th>
 	<th>Rating</th></tr>
 	@foreach (var item in Model.Players)
 	{
@@ -14,9 +16,9 @@
 			<td>@item.Name</td>
 			<td>@item.MatchesPlayed</td>
 			<td>@item.MatchesWon</td>
-			<td>@item.MatchesLost</td>
-			<td>@item.SetsWon</td>
-			<td>@item.SetsLost</td>
+			<td class="extra">@item.MatchesLost</td>
+			<td class="extra">@item.SetsWon</td>
+			<td class="extra">@item.SetsLost</td>
 			<td>@item.Elo</td>
 		</tr>
 		<tbody id="@("tb"+item.Id)" style="display:none"></tbody>
