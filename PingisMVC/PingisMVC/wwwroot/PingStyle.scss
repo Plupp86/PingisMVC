@@ -27,6 +27,7 @@
 .cont {
 	background-color: #C7C7C7;
 	padding: 20px;
+	padding-bottom:50px;
 	/*width: 95%;*/
 	margin: 0 auto;
 }
@@ -44,6 +45,14 @@ text {
 	th.extra {
 		display: none;
 	}
+	img.extra{
+		display:none;
+	}
+
+	td.mobOnly{
+		display:initial!important;
+		text-align:right;
+	}
 }
 
 
@@ -52,11 +61,11 @@ text {
 
 
 .win {
-	color: green;
+	color: #2F343B;
 }
 
 .lose {
-	color: red;
+	color: #703030;
 }
 
 th {
@@ -69,7 +78,7 @@ table.stats {
 	margin-bottom: 0;
 
 	tr {
-		font-size: 11px;
+		font-size: 12px;
 		background-color: #C7C7C7;
 
 		td {
@@ -87,6 +96,12 @@ table.stats {
 	color:red;
 	text-align:left;
 }
+
+td.playerName{
+	text-align:left;
+}
+
+
 table.leaguetable {
 	border: none; //1px solid beige;
 	border-collapse: collapse;
@@ -109,6 +124,10 @@ table.leaguetable {
 		text-align: center;
 	}
 
+	th.playerName {
+		text-align: left;
+	}
+
 	tr.stats {
 		font-size: 11px;
 		background-color: #C7C7C7;
@@ -118,6 +137,8 @@ table.leaguetable {
 		}
 	}
 }
+
+
 
 table.repMatch {
 	border: none; //1px solid beige;

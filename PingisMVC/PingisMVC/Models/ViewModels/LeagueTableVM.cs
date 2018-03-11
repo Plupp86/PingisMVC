@@ -9,5 +9,6 @@ namespace PingisMVC.Models.ViewModels
     public class LeagueTableVM
     {
 		public Player[] Players { get; set; }
+		public int Counter { get; set; }
 	}
 }

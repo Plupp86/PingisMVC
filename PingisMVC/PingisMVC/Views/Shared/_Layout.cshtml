@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
 	<meta name="viewport" content="width=device-width" />
@@ -10,26 +9,31 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="~/MyJava.js"></script>
 	<link href="~/PingStyle.min.css" rel="stylesheet" />
-	<link href="~/StyleSheet.css" rel="stylesheet" />
+	<link href="~/NavBarFix.css" rel="stylesheet" />
 </head>
 <body>
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<img src="~/images/logo_small.png" width="50px" style="padding:2px"/>
-				</div>
-				<ul class="nav navbar-nav">
-					<li><a asp-controller="Home" asp-action="Index">Home</a></li>
-					<li><a asp-controller="Home" asp-action="RecentGames">Recent Games</a></li>
-					<li><a asp-controller="Home" asp-action="AddMatch">Add Match</a></li>
-					<li><a asp-controller="Home" asp-action="AddPlayer">Add Player</a></li>
-				</ul>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				
 			</div>
-		</nav>
-		@*<a asp-controller="Home" asp-action="Index">Home</a> -
-		<a asp-controller="Home" asp-action="RecentGames">Recent Games</a> -
-		<a asp-controller="Home" asp-action="AddMatch">Add Match</a>
-		<a asp-controller="Home" asp-action="AddPlayer">Add Player</a>*@
+			<table width="100%">
+				<tr><td><img src="~/images/logo_small.png" width="50px" style="padding:2px" class="extra" /></td>
+					<td width="100%">
+			<ul class="nav navbar-nav">
+				<li><a asp-controller="Home" asp-action="Index">Home</a></li>
+				<li><a asp-controller="Home" asp-action="RecentGames">Recent Games</a></li>
+				<li><a asp-controller="Home" asp-action="AddMatch">Add Match</a></li>
+				<li><a asp-controller="Home" asp-action="AddPlayer">Add Player</a></li>
+			</ul>
+					</td>
+					<td class="mobOnly" style="display:none">
+						<img src="~/images/logo_small.png" width="150px" style="padding:2px"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</nav>
 	<div class="cont">
 		@RenderBody()
 	</div>

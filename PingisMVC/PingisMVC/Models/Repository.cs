@@ -54,9 +54,7 @@ namespace PingisMVC.Models
 				.ToArray();
 		}
 
-		public PlayedMatch[] GetMatchesById(int id)
-		{
-			return context.Match
+		public PlayedMatch[] GetMatchesById(int id) => context.Match
 				.Include(m => m.Player1)
 				.Include(m => m.Player2)
 				.OrderByDescending(m => m.Date)
@@ -71,7 +69,6 @@ namespace PingisMVC.Models
 				})
 				.Take(5)
 				.ToArray();
-		}
 
 		public Team[] GetTeams() => context.Team
 				.ToArray();
@@ -84,13 +81,9 @@ namespace PingisMVC.Models
 				.ToArray();
 		}
 
-		public string GetTeamName(int id)
-		{
-			return context.Team
+		public string GetTeamName(int id) => context.Team
 				.Single(t => t.Id == id)
 				.ClassName;
-				
-		}
 
 		public AddMatchVM PopulateLists()
 		{

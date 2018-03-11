@@ -1,19 +1,20 @@
 ﻿@model LeagueTableVM
 
+
 <h3 class="pageHeader">Current Standing</h3><br />
 <table class="leaguetable">
 	<tr>
-	<th>Player</th>
+	<th class="playerName">Player</th>
 	<th>Matches Played</th>
-	<th>Mathches Won</th>
+	<th>Matches Won</th>
 	<th class="extra">Matches Lost</th>
 	<th class="extra">Sets Won</th>
 	<th class="extra">Sets Lost</th>
 	<th>Rating</th></tr>
 	@foreach (var item in Model.Players)
 	{
-		<tr onclick="toggleStats(@item.Id)">
-			<td>@item.Name</td>
+		<tr onclick="toggleStats(@item.Id)" style="cursor:default">
+			<td class="playerName">@item.Name</td>
 			<td>@item.MatchesPlayed</td>
 			<td>@item.MatchesWon</td>
 			<td class="extra">@item.MatchesLost</td>

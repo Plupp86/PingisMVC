@@ -5,8 +5,18 @@
 /*#7E827A 
 #2F343B
 #C77966*/
+
 .navbar-default {
-  background-color: #E3CDA4; }
+	background-color: #E3CDA4;
+	border-color: #703030;
+}
+
+
+
+.navbar {
+	border-radius: 4px;
+	border-color: #703030;
+}
 
 .navbar-default .navbar-nav > li > a {
   color: #703030; }
@@ -21,6 +31,7 @@
 .cont {
   background-color: #C7C7C7;
   padding: 20px;
+  padding-bottom: 50px;
   /*width: 95%;*/
   margin: 0 auto; }
 
@@ -32,13 +43,18 @@ text {
     background-color: pink;
     display: none; }
   th.extra {
-    display: none; } }
+    display: none; }
+  img.extra {
+    display: none; }
+  td.mobOnly {
+    display: initial !important;
+    text-align: right; } }
 
 .win {
-  color: green; }
+  color: #2F343B; }
 
 .lose {
-  color: red; }
+  color: #703030; }
 
 th {
   background-color: darkgray; }
@@ -47,7 +63,7 @@ table.stats {
   padding-bottom: 0;
   margin-bottom: 0; }
   table.stats tr {
-    font-size: 11px;
+    font-size: 12px;
     background-color: #C7C7C7; }
     table.stats tr td {
       text-align: left;
@@ -57,6 +73,9 @@ table.stats {
 
 .valWarning {
   color: red;
+  text-align: left; }
+
+td.playerName {
   text-align: left; }
 
 table.leaguetable {
@@ -75,6 +94,8 @@ table.leaguetable {
     padding-left: 4px;
     padding-right: 4px;
     text-align: center; }
+  table.leaguetable th.playerName {
+    text-align: left; }
   table.leaguetable tr.stats {
     font-size: 11px;
     background-color: #C7C7C7; }
